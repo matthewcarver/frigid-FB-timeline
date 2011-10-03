@@ -13,7 +13,7 @@ $db; $auth; $build; $f; $img; $facebook;
 
 $build = new Build();
 
-$meta['url'] = ($_SERVER['HTTPS'] == 'on') ? str_replace('http://', 'https://', SITE_URL) : SITE_URL;
+$meta['url'] = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? str_replace('http://', 'https://', SITE_URL) : SITE_URL;
 $meta['content'] = $meta['url'] . '/content';
 $meta['resources'] = $meta['url'] . '/resources';
 $meta['uploads'] = $meta['url'] . '/' . UPLOAD_PATH;
@@ -101,5 +101,5 @@ if(file_exists(CNTPATH . 'functions.php')) require_once(CNTPATH . 'functions.php
 if(LOAD_TEMPLATE == 'YES')
 {
 	$build->page();
-	if(DB_SERVICE == 'ON') $db->close();
+	if(DB_CLASS == 'ON') $db->close();
 }
