@@ -102,8 +102,8 @@ function load_scripts($load = array('all'), $extra = array())
 function load_styles($load = array('all'), $extra = array())
 {
 	$styles = array(
-		'master' => array('url' => meta('resources', false) . '/css/master.css'),
-		'style' => array('url' => meta('content', false) . '/css/style.css')
+		'master' => array('url' => meta('resources', false) . '/styles/master.css'),
+		'style' => array('url' => meta('content', false) . '/styles/style.css')
 	);
 	array_merge($styles, $extra);
 	
