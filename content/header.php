@@ -9,6 +9,7 @@
 	<meta charset="<?php meta('charset'); ?>" />
 	<meta name="description" content="<?php meta('description'); ?>" />
 	<meta name="keywords" content="<?php meta('keywords'); ?>" />
+	
 	<title><?php meta('title'); ?></title>
 	
 	<?php load_styles(); ?>
@@ -16,11 +17,12 @@
 		var site = {
 			url:'<?php meta("url"); ?>',
 			ajax: '<?php meta("url"); ?>/ajax',
-			page: '<?php meta("body_class"); ?>'
+			page: '<?php meta("body_class"); ?>',
+			fb: '<?php meta("fb_url"); ?>'
 		};
 	</script>
 	<?php load_scripts( array( 'modernizr', 'jquery', 'scripts' ) ); ?>
 </head>
 <body class="<?php meta('body_class'); ?>">
-	<div id="container" class="clear">
-		<section id="content" class="clear">
+	<div id="container" class="container clear">
+		<div id="content" class="main clear">

@@ -9,20 +9,15 @@
 * @return (string) HTML of URL.
 *
 */
-function getHTML($url, $options = false)
-{
+function getHTML($url, $options = false) {
 	$curl = curl_init();
 	curl_setopt($curl, CURLOPT_URL, $url);
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-	if($options)
-	{
-		foreach($options as $key => $value)
-		{
+	if($options) {
+		foreach($options as $key => $value) {
 			curl_setopt($curl, $key, $value);
 		}
-	}
-	else
-	{
+	} else {
 		curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 GTB5');
 	}
 	return curl_exec($curl);
@@ -36,8 +31,7 @@ function getHTML($url, $options = false)
 * @param (array) Optional. Defaults to FF 3.5 UserAgent but can use array of other options.
 * @return (string) XML of URL.
 */
-function getXML($url, $options = false)
-{
+function getXML($url, $options = false) {
 	$html = getHTML($url, $options);
 	$xml = simplexml_load_string($html);
 	return $xml;
@@ -55,15 +49,11 @@ function getXML($url, $options = false)
 * @return (array) Feed Info.
 * 
 */
-function getWordpressRSSFeed($url, $total = 999, $options = false, $array = array(), $i = 0)
-{
+function getWordpressRSSFeed($url, $total = 999, $options = false, $array = array(), $i = 0) {
 	$xml = getXML('http://pepsicoblogs.com/feed/');
-	if($xml->channel->item)
-	{
-		foreach($xml->channel->item as $item)
-		{
-			if($i < $total)
-			{
+	if($xml->channel->item) {
+		foreach($xml->channel->item as $item) {
+			if($i < $total) {
 				$dc = $item->children('http://purl.org/dc/elements/1.1/');
 				$slash = $item->children('http://purl.org/rss/1.0/modules/slash/');
 
@@ -89,12 +79,10 @@ function getWordpressRSSFeed($url, $total = 999, $options = false, $array = arra
 * @param (array) Optional. Existing array to add information to. Existing items could be rewritten!
 * @return (array) Photo Info.
 */
-function getSingleFlickrPhotoInfo($url, $options = false, $array = array())
-{
+function getSingleFlickrPhotoInfo($url, $options = false, $array = array()) {
 	preg_match_all('/http:\/\/www.flickr.com\/photos\/.*?\/(.*?)\//', $url, $matches);
 	$xml = getXML('http://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key='.FLICKR_API_KEY.'&photo_id='.$matches[1][0], $options);
-	if($xml->attributes()->stat == 'ok')
-	{
+	if($xml->attributes()->stat == 'ok') {
 		$attrs = $xml->photo->attributes();
 		$author = $xml->photo->owner->attributes();
 		$dates = $xml->photo->dates->attributes();
@@ -124,15 +112,11 @@ function getSingleFlickrPhotoInfo($url, $options = false, $array = array())
 * @return (array) Photos Info.
 * 
 */
-function getFlickrFeedResults($url, $total = 999, $options = false, $array = array(), $i = 0)
-{
+function getFlickrFeedResults($url, $total = 999, $options = false, $array = array(), $i = 0) {
 	$xml = getXML($url, $options);
-	if($xml->channel->item)
-	{
-		foreach($xml->channel->item as $item)
-		{
-			if($i < $total)
-			{
+	if($xml->channel->item) {
+		foreach($xml->channel->item as $item) {
+			if($i < $total) {
 				$media = $item->children('http://search.yahoo.com/mrss/');
 
 				$array[$i]['title'] = (string) $item->title;
@@ -164,16 +148,13 @@ function getFlickrFeedResults($url, $total = 999, $options = false, $array = arr
 * @param (string) Optional. Filter results by media type.
 * @return (array) Photo Info.
 */
-function getFlickrSetPhotoInfo($photoset_id, $extras = "date_upload, date_taken, views, url_sq, url_t, url_s, url_m, url_o", $privacy_filter = 1, $per_page = 500, $page = 1, $media = "all")
-{
+function getFlickrSetPhotoInfo($photoset_id, $extras = "date_upload, date_taken, views, url_sq, url_t, url_s, url_m, url_o", $privacy_filter = 1, $per_page = 500, $page = 1, $media = "all") {
 	$extras = urlencode( $extras );
 	$xml = getXML('http://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' . FLICKR_API_KEY . '&photoset_id=' . $photoset_id . '&extras=' . $extras);
-	if($xml->attributes()->stat == 'ok')
-	{
+	if($xml->attributes()->stat == 'ok') {
 		$i = 0;
 		$array = array();
-		foreach ( $xml->photoset->photo as $photo )
-		{
+		foreach ( $xml->photoset->photo as $photo ) {
 			$photo = $photo->attributes();
 		
 			$array[$i]['id'] = (string) $photo->id;
@@ -203,11 +184,9 @@ function getFlickrSetPhotoInfo($photoset_id, $extras = "date_upload, date_taken,
 * @return (array) Photos Info.
 * 
 */
-function getTwitPicUserImages($username, $options = false, $array = array(), $i = 0)
-{
+function getTwitPicUserImages($username, $options = false, $array = array(), $i = 0) {
 	$xml = getXML("http://api.twitpic.com/2/users/show.xml?username=$username");
-	foreach($xml->images->image as $image)
-	{
+	foreach($xml->images->image as $image) {
 		$array[$i]['image_id'] = (int) $image->id;
 		$array[$i]['user_id'] = (int) $image->user_id;
 		$array[$i]['short_id'] = (string) $image->short_id;
@@ -234,13 +213,10 @@ function getTwitPicUserImages($username, $options = false, $array = array(), $i 
 * @return (array) Twitter Statuses Info.
 *
 */
-function getTwitterSearchResults($search, $total, $options = false, $array = array(), $i = 0)
-{
+function getTwitterSearchResults($search, $total, $options = false, $array = array(), $i = 0) {
 	$xml = getXML('http://search.twitter.com/search.atom?q='.$search.'&rpp='.$total, $options);
-	if(!$xml->error)
-	{
-		foreach($xml->entry as $entry)
-		{
+	if(!$xml->error) {
+		foreach($xml->entry as $entry) {
 			$array[$i]['content'] = (string) $entry->content;
 			$array[$i]['author'] = substr($entry->author->uri, 19);
 			$array[$i]['datetime'] = date('Y-m-d H:i:s', strtotime($entry->published));
@@ -253,13 +229,10 @@ function getTwitterSearchResults($search, $total, $options = false, $array = arr
 	return $array;
 }
 
-function getTwitterUserTimeline($total, $i = 0, $array = array())
-{
+function getTwitterUserTimeline($total, $i = 0, $array = array()) {
 	$xml = getXML('http://api.twitter.com/1/statuses/user_timeline.rss?count='.$total, array(CURLOPT_USERPWD => TWITTER_CREDS, CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 GTB5'));
-	if(isset($xml->channel->item))
-	{
-		foreach($xml->channel->item as $item)
-		{
+	if(isset($xml->channel->item)) {
+		foreach($xml->channel->item as $item) {
 			$array[$i]['content'] = $item->description;
 			$array[$i]['url'] = $item->link;
 			$array[$i]['datetime'] = date('Y-m-d H:i:s', strtotime($item->pubDate));
@@ -279,12 +252,10 @@ function getTwitterUserTimeline($total, $i = 0, $array = array())
 * @return (array) Twitter Status Info.
 *
 */
-function getSingleTwitterStatusInfo($url, $options = false, $array = array())
-{
+function getSingleTwitterStatusInfo($url, $options = false, $array = array()) {
 	preg_match_all('/\/statuses\/(.*?)$/', $url, $matches);
 	$xml = getXML('http://api.twitter.com/1/statuses/show/'.$matches[1][0].'.xml', $options);
-	if(!$xml->error)
-	{
+	if(!$xml->error) {
 		$array['content'] = (string) $xml->text;
 		$array['author'] = (string) $xml->user->screen_name;
 		$array['datetime'] = date('Y-m-d H:i:s', strtotime($xml->created_at));
@@ -305,11 +276,9 @@ function getSingleTwitterStatusInfo($url, $options = false, $array = array())
 * PARAMETERS ARE DEFINED HERE: http://code.google.com/apis/youtube/2.0/developers_guide_protocol_api_query_parameters.html
 *
 */
-function getYoutubeVideosByQuery($parameters, $array = array(), $i = 0)
-{
+function getYoutubeVideosByQuery($parameters, $array = array(), $i = 0) {
 	$xml = getXML('http://gdata.youtube.com/feeds/api/videos/?'.$parameters);
-	foreach($xml->entry as $entry)
-	{
+	foreach($xml->entry as $entry) {
 		$media = $entry->children('http://search.yahoo.com/mrss/');
 		$yt = $media->group->children('http://gdata.youtube.com/schemas/2007');
 		
@@ -322,36 +291,28 @@ function getYoutubeVideosByQuery($parameters, $array = array(), $i = 0)
 		
 		$t = 0;
 		$thumbs = array();
-		foreach($media->group->thumbnail as $thumb)
-		{
-			if(count($thumbs) != 2)
-			{
-				if(count($thumbs) == 0 || (count($thumbs) == 1 && $thumbs[0]['width'] != (string) $thumb->attributes()->width))
-				{
+		foreach($media->group->thumbnail as $thumb) {
+			if(count($thumbs) != 2) {
+				if(count($thumbs) == 0 || (count($thumbs) == 1 && $thumbs[0]['width'] != (string) $thumb->attributes()->width)) {
 					$thumbs[$t]['url'] = (string) $thumb->attributes()->url;
 					$thumbs[$t]['width'] = (int) $thumb->attributes()->width;
 					$t++;
 				}
 			}
 		}
-		if($thumbs[0]['width'] > $thumbs[1]['width'])
-		{
+		if($thumbs[0]['width'] > $thumbs[1]['width']) {
 			$array[$i]['thumb_sm'] = $thumbs[1]['url'];
 			$array[$i]['thumb_lg'] = $thumbs[0]['url'];
-		}
-		else
-		{
+		} else {
 			$array[$i]['thumb_sm'] = $thumbs[0]['url'];
 			$array[$i]['thumb_lg'] = $thumbs[1]['url'];
 		}
-		
 		$i++;
 	}
 	return $array;
 }
 
-function getSingleYoutubeVideoInfo($url, $array = array())
-{
+function getSingleYoutubeVideoInfo($url, $array = array()) {
 	$v = getVarFromUrl($url, 'v');
 	$xml = getXML('http://gdata.youtube.com/feeds/api/videos/'.$v);
 	$author = getXML('http://gdata.youtube.com/feeds/api/users/'.$xml->author->name.'?v=2');
@@ -371,27 +332,19 @@ function getSingleYoutubeVideoInfo($url, $array = array())
 	return $array;
 }
 
-function insertArrayIntoDB($array, $table, $dupeCheckColumn = '')
-{
+function insertArrayIntoDB($array, $table, $dupeCheckColumn = '') {
 	global $db;
-	if(!empty($array))
-	{
-		if(is_array($array[0]))
-		{
-			foreach($array as $item)
-			{
-				if(!empty($dupeCheckColumn))
-				{
+	if(!empty($array)) {
+		if(is_array($array[0])) {
+			foreach($array as $item) {
+				if(!empty($dupeCheckColumn)) {
 					$dupeCheck = $item[$dupeCheckColumn];
 					$inDB = $db->query_first("SELECT id FROM $table WHERE $dupeCheckColumn = '$dupeCheck'");
 				}
 				if(!$inDB) $db->query_insert($table, $item);
 			}
-		}
-		else
-		{
-			if(!empty($dupeCheckColumn))
-			{
+		} else {
+			if(!empty($dupeCheckColumn)) {
 				$dupeCheck = $array[$dupeCheckColumn];
 				$inDB = $db->query_first("SELECT id FROM $table WHERE $dupeCheckColumn = '$dupeCheck'");
 			}
@@ -400,42 +353,35 @@ function insertArrayIntoDB($array, $table, $dupeCheckColumn = '')
 	}
 }
 
-function getPageTitle($url)
-{
+function getPageTitle($url) {
 	$html = getHTML($url);
 	preg_match_all('/<title>(.*?)<\/title>/', $html, $matches);
 	return $matches[1][0];
 }
 
-function checkDomainsInUrl($url, $domains = array())
-{
+function checkDomainsInUrl($url, $domains = array()) {
 	$domain = getDomainFromUrl($url);
-	if($domains)
-	{
-		foreach($domains as $item)
-		{
+	if($domains) {
+		foreach($domains as $item) {
 			if($item == $domain) return true;
 		}
 	}
 	return false;
 }
 
-function getDomainFromUrl($url)
-{
+function getDomainFromUrl($url) {
 	$parsedURL = parse_url($url);
 	return str_replace('www.', '', $parsedURL['host']);
 }
 
-function getVarFromUrl($url, $var = null)
-{
+function getVarFromUrl($url, $var = null) {
 	$parsedURL = parse_url($url);
 	parse_str($parsedURL['query'], $urlVars);
 	if($var) return $urlVars[$var];
 	else return $urlVars;
 }
 
-function secondsToMinutes($seconds)
-{
+function secondsToMinutes($seconds) {
 	$minutes = floor($seconds/60);
 	$secondsleft = $seconds%60;
 	if($minutes<10)
@@ -445,52 +391,41 @@ function secondsToMinutes($seconds)
 	return $minutes.':'.$secondsleft;
 }
 
-function monthArray()
-{
+function monthArray() {
 	return array('01'=>'January', '02'=>'February', '03'=>'March', '04'=>'April', '05'=>'May', '06'=>'June', '07'=>'July', '08'=>'August', '09'=>'September', '10'=>'October', '11'=>'November', '12'=>'December');
 }
 
-function dayArray()
-{
+function dayArray() {
 	return array('01'=>'1', '02'=>'2', '03'=>'3', '04'=>'4', '05'=>'5', '06'=>'6', '07'=>'7', '08'=>'8', '09'=>'9', '10'=>'10', '11'=>'11', '12'=>'12','13'=>'13','14'=>'14', '15'=>'15', '16'=>'16', '17'=>'17', '18'=>'18', '19'=>'19', '20'=>'20', '21'=>'21', '22'=>'22','23'=>'23','24'=>'24', '25'=>'25', '26'=>'26', '27'=>'27', '28'=>'28', '29'=>'29', '30'=>'30', '31'=>'31');
 }
 
-function yearArray($yearhigh = 2050, $yearlow = 1900)
-{
+function yearArray($yearhigh = 2050, $yearlow = 1900) {
 	$choices = array();
-	for($i = $yearhigh; $i >= $yearlow; $i--)
-	{
+	for($i = $yearhigh; $i >= $yearlow; $i--) {
 		$choices[$i] = $i;
 	}
 	return $choices;
 }
 
-function stateArray()
-{
+function stateArray() {
 	return array('AL'=>"Alabama", 'AK'=>"Alaska", 'AZ'=>"Arizona", 'AR'=>"Arkansas", 'CA'=>"California", 'CO'=>"Colorado", 'CT'=>"Connecticut", 'DE'=>"Delaware", 'DC'=>"District Of Columbia", 'FL'=>"Florida", 'GA'=>"Georgia", 'HI'=>"Hawaii", 'ID'=>"Idaho", 'IL'=>"Illinois", 'IN'=>"Indiana", 'IA'=>"Iowa", 'KS'=>"Kansas", 'KY'=>"Kentucky", 'LA'=>"Louisiana", 'ME'=>"Maine", 'MD'=>"Maryland",  'MA'=>"Massachusetts", 'MI'=>"Michigan",  'MN'=>"Minnesota", 'MS'=>"Mississippi", 'MO'=>"Missouri", 'MT'=>"Montana", 'NE'=>"Nebraska", 'NV'=>"Nevada", 'NH'=>"New Hampshire", 'NJ'=>"New Jersey", 'NM'=>"New Mexico", 'NY'=>"New York", 'NC'=>"North Carolina", 'ND'=>"North Dakota", 'OH'=>"Ohio", 'OK'=>"Oklahoma", 'OR'=>"Oregon", 'PA'=>"Pennsylvania", 'RI'=>"Rhode Island", 'SC'=>"South Carolina", 'SD'=>"South Dakota", 'TN'=>"Tennessee", 'TX'=>"Texas", 'UT'=>"Utah", 'VT'=>"Vermont", 'VA'=>"Virginia", 'WA'=>"Washington", 'WV'=>"West Virginia", 'WI'=>"Wisconsin", 'WY'=>"Wyoming");
 }
 
-function printSelect($options, $current = '')
-{
-	foreach($options as $key => $value)
-	{
-		if($key == $current)
-		{
+function printSelect($options, $current = '') {
+	foreach($options as $key => $value) {
+		if($key == $current) {
 			echo '<option value="'.$key.'" selected>'.$value.'</option>';
 		}
-		else
-		{
+		else {
 			echo '<option value="'.$key.'">'.$value.'</option>';
 		}
 	}
 }
 
-function printNav($items, $total = null, $i = null)
-{
+function printNav($items, $total = null, $i = null) {
 	if(!$total) $total = count($items);
 	if(!$i) $i = 1;
-	foreach($items as $item)
-	{
+	foreach($items as $item) {
 		$classes = '';
 		$a_class = '';
 		$onclick = '';
@@ -508,65 +443,53 @@ function printNav($items, $total = null, $i = null)
 	}
 }
 
-function validateEmail($email)
-{
+function validateEmail($email) {
 	if(eregi("^([_a-z0-9-]+)(\.[_a-z0-9-]+)*@([a-z0-9-]+)(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", $email)) return true;
 	else return false;
 }
 
-function removeNonAlphaNumerics($string)
-{
+function removeNonAlphaNumerics($string) {
 	return trim(preg_replace('/[^A-Za-z0-9 ]/', '', $string));
 }
 
-function removeExtraSpaces($string)
-{
+function removeExtraSpaces($string) {
 	return trim(preg_replace('/\s+/', ' ', $string));
 }
 
-function countWords($string)
-{
+function countWords($string) {
 	return str_word_count($string);
 }
 
-function removeCDATA($string) 
-{ 
+function removeCDATA($string) { 
     preg_match_all('/<!\[cdata\[(.*?)\]\]>/is', $string, $matches);
     return str_replace('\n', ' ', strip_tags(str_replace($matches[0], $matches[1], $string))); 
 }
 
-function substrLength($string, $length)
-{
-	if(strlen($string) > $length)
-	{
+function substrLength($string, $length) {
+	if(strlen($string) > $length) {
 		$string = trim(substr($string, 0, $length)).'&#8230;';
 	}
 	return $string;
 }
 
-function substrWords($string, $length, $delimiter = '&hellip;') 
-{
-	if(strlen($string) > $length)
-	{
+function substrWords($string, $length, $delimiter = '&hellip;') {
+	if(strlen($string) > $length) {
 		preg_match('/(.{' . $length . '}.*?)\b/', $string, $matches);  
 	    $string = preg_replace("'(&[a-zA-Z0-9#]+)$'", '$1;', $matches[1]) . $delimiter;
 	}
     return $string; 
 }
 
-function trimByWords($string, $num)
-{
+function trimByWords($string, $num) {
 	preg_match("/([\S]+\s*){0,$num}/", strip_tags($string), $regs);
 	return trim($regs[0]);
 }
 
-function urlSafe($string)
-{
+function urlSafe($string) {
 	return str_replace(' ', '-', strtolower(removeExtraSpaces(removeNonAlphaNumerics($string))));
 }
 
-function getAge($DOB)
-{
+function getAge($DOB) {
 	list($year, $month, $day) = explode("-", $DOB);
 	$year_diff = date('Y') - $year;
 	$month_diff = date('m') - $month;
@@ -575,20 +498,17 @@ function getAge($DOB)
 	return $year_diff;
 }
 
-function validate5DigitZip($zip)
-{
+function validate5DigitZip($zip) {
 	if(preg_match('/^[0-9]{5}$/', $zip)) return true;
 	else return false;
 }
 
-function validatePhone($number)
-{
+function validatePhone($number) {
   $pattern = '/^[\(]?[0-9]{3}[\)]?[-. ]?[0-9]{3}[-. ]?[0-9]{4}$/';
   return preg_match($pattern, $number);
 }
 
-function postify($fields)
-{
+function postify($fields) {
 	$post = '';
 	foreach($fields as $key => $value)
 	{
@@ -597,9 +517,24 @@ function postify($fields)
 	return rtrim($post, '&amp;');
 }
 
-function nl2p($string, $line_breaks = true, $xml = true)
-{
+function nl2p($string, $line_breaks = true, $xml = true) {
 	$string = str_replace(array('<p>', '</p>', '<br>', '<br />'), '', $string);
 	if($line_breaks) return '<p>'.preg_replace(array("/([\n]{2,})/i", "/([^>])\n([^<])/i"), array("</p>\n<p>", '<br'.($xml == true ? ' /' : '').'>'), trim($string)).'</p>';
 	else return '<p>'.preg_replace("/([\n]{1,})/i", "</p>\n<p>", trim($string)).'</p>';
+}
+
+function correctDateFormat($date, $format = 'MM/DD/YYYY') {
+	switch($format) {
+		case 'MM-DD-YYYY':
+		case 'MM/DD/YYYY':
+			list($m, $d, $y) = preg_split('/[-\.\/ ]/', $date);
+			break;
+	}
+	return checkdate($m, $d, $y);
+}
+
+function changePage($page) {
+	global $build, $meta;
+	$build->page = $page;
+	$meta['body_class'] = $page;
 }

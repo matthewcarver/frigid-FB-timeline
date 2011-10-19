@@ -3,28 +3,10 @@
 // Like Gate
 //if( is_page('home') && !fbIsFan() ) changePage('like');
 
-function changePage($page) {
-	global $build, $meta;
-	$build->page = $page;
-	$meta['body_class'] = $page;
-}
-
 function meta_title(){
 	global $meta;
 	$meta['title'] = (isset($meta['title']) && !empty($meta['title'])) ? $meta['title'] . ' &raquo; ' : '';
 	return $meta['title'] . SITE_TITLE;
-}
-
-function correctDateFormat($date, $format = 'MM/DD/YYYY') {
-	switch($format) {
-		
-		case 'MM-DD-YYYY':
-		case 'MM/DD/YYYY':
-			list($m, $d, $y) = preg_split('/[-\.\/ ]/', $date);
-			break;
-		
-	}
-	return checkdate($m, $d, $y);
 }
 
 function alreadyEntered($email) {

@@ -1,4 +1,4 @@
-		</section> <!-- end #content -->
+		</div> <!-- end #content -->
 	</div> <!-- end #container -->
 	<div id="fb-root"></div>
 	<script type="text/javascript">
@@ -16,7 +16,7 @@
 	</script>
 	<script>
 		//Asynchronous Google Analytics
-		var _gaq = [['_setAccount', 'UA-XXXXXXXX-X'], ['_trackPageview']];
+		var _gaq = [['_setAccount', '<?php echo GA_ID; ?>'], ['_trackPageview']];
 		(function(d, t) {
 		var g = d.createElement(t),
 			s = d.getElementsByTagName(t)[0];

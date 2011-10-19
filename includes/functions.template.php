@@ -67,12 +67,11 @@ function meta($item, $echo = true){
 function load_scripts($load = array('all'), $extra = array()){
 	$scripts = array(
 		'modernizr' => array('url' => meta('resources', false) . '/scripts/modernizr.js'),
-		'jquery' => array('url' => '//ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js'),
+		'jquery' => array('url' => '//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'),
 		'swfobject' => array('url' => '//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js'),
 		'facebook' => array('url' => '//connect.facebook.net/en_US/all.js'),
 		'easing' => array('url' => meta('resources', false) . '/scripts/easing.js'),
 		'pngfix' => array('url' => meta('resources', false) . '/scripts/pngfix.js'),
-		'master' => array('url' => meta('resources', false) . '/scripts/master.js'),
 		'scripts' => array('url' => meta('content', false) . '/scripts/scripts.js')
 	);
 	array_merge($scripts, $extra);

@@ -3,7 +3,7 @@
 // GENERAL CONFIGURATION
 
 define('SITE_TITLE', 'Facebook App');
-define('SITE_URL', '');
+define('SITE_URL', 'http://frameworks.local/facebook-framework');
 define('UPLOAD_PATH', '/uploads');
 define('SITE_LANGUAGE', 'en');
 define('SITE_CHARSET', 'utf-8');
@@ -11,7 +11,7 @@ define('SITE_CHARSET', 'utf-8');
 // DEFINE ANY ADDITIONAL METADATA HERE
 
 $meta = array(
-	
+	'fb_url' => ''
 );
 
 // CLASSES ON/OFF
@@ -38,6 +38,7 @@ define('DB_DATABASE', 'app_db_name');
 define('SECRET_KEY', 'qazwsx890');
 define('FB_APP_ID', '');
 define('FB_APP_SECRET', '');
+define('GA_ID', '');
 
 
 // AND AWAY WE GO!

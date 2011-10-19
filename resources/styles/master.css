@@ -13,6 +13,9 @@ a:hover       { text-decoration: underline; }
 form          { display: inline; }
 fieldset      { border: 0; }
 legend        { display: none; }
+::-webkit-input-placeholder { color:#808080; font-style:italic; }
+input:-moz-placeholder, textarea:-moz-placeholder {	color:#808080; font-style:italic; }
+input.placeholder-text, textarea.placeholder-text  { color:#808080; font-style:italic; }
 
 /* Table */
 table         { border: 0; border-collapse: collapse; border-spacing: 0; empty-cells: show; font-size: 100%; }
@@ -26,6 +29,7 @@ q,
 blockquote    { quotes: none; }
 q:before,
 q:after       { content: ''; }
+blockquote    { font-style: italic; padding: 0 0 0 2em; }
 abbr, acronym { border: 0; } 
 small         { font-size: 10px; }
 big           { font-size: 1.2em; }
@@ -37,28 +41,29 @@ ul,ol         { list-style: none; }
 
 /* Tools */
 .hidden       { display: block !important; border: 0 !important; margin: 0 !important; padding: 0 !important; font-size: 0 !important; line-height: 0 !important; width: 0 !important; height: 0 !important; overflow: hidden !important; }
-.nobr         { white-space: nowrap !important; }
 .wrap         { white-space: normal !important; }
 .v-top        { vertical-align: top; }
 .v-middle     { vertical-align: middle; }
-.f-left,
 .float-left,
 .left         { float: left !important; }
-.f-right,
 .float-right,
 .right        { float: right !important; }
-.f-none       { float: none !important; }
-.f-fix        { float: left; width: 100%; }
-.no-display,
 .hide		  { display: none; }
 .block 		  { display: block; }
 .text-left 	  { text-align: left; }
 .text-right   { text-align: right; }
 .text-center  { text-align: center; }
 .text-justify { text-align: justify; }
-.bold 		  { font-weight: bold; }
-.italic 	  { font-style: italic; }
 .underline 	  { border-bottom: 1px solid; }
 .highlight 	  { background: #fffaaa; }
 .relative 	  { position: relative; }
 .absolute 	  { position: absolute; }
+
+/* Clearfix */
+.clear:before,
+.clear:after,
+.col2-set:before,
+.col2-set:after { content: "."; display: block; height: 0; overflow: hidden; }
+.clear:after,
+.clear:after, .col2-set:after { clear: both; }
+.ie .clear, .ie .col2-set { zoom: 1; }

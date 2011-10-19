@@ -2,72 +2,40 @@
 Global
 ================================================================================= */
 
-/* Tags */
-body { background: #fff; color: #1b2746; font: 12px/1 Helvetica, Arial, sans-serif; width: 520px; }
-blockquote { font-style: italic; padding: 0 0 0 2em; }
+body { color: #444; font: 16px/1 Helvetica, Arial, sans-serif; width: 520px; }
 
 /* Tools */
 .alignleft  { float: left; margin: 1em 1em 1em 0; }
 .alignright { float: right; margin: 0 0 1em 1em; }
 .bullets { list-style: disc outside; margin: 1em 0; padding: 0 0 0 3em; }
 .numbers { list-style: decimal outside; margin: 1em 0; padding: 0 0 0 3em; }
-.text-img { display: block; overflow: hidden; text-indent: -999em; }
-
-/* Clearfix */
-.clear:before,
-.clear:after,
-.col2-set:before,
-.col2-set:after { content: "."; display: block; height: 0; overflow: hidden; }
-.clear:after,
-.clear:after, .col2-set:after { clear: both; }
-.ie .clear, .ie .col2-set { zoom: 1; }
+.text-img { display: block; overflow: hidden; text-indent: -9999em; }
 
 /* Fonts */
-@font-face {
-    font-family: 'DeliciousRoman';
-    src: url('delicious-roman-webfont.eot');
-    src: url('delicious-roman-webfont.eot?#iefix') format('embedded-opentype'),
-         url('delicious-roman-webfont.woff') format('woff'),
-         url('delicious-roman-webfont.ttf') format('truetype'),
-         url('delicious-roman-webfont.svg#DeliciousRoman') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-h1, h2, h3, h4, h5, h6 { font-family: 'DeliciousRoman', Helvetica, Arial, sans-serif; font-weight: normal; }
-h1  	{ font-size: 24px; margin: 0 0 20px; }
-h2  	{ font-size: 18px; margin: 0 0 15px; }
-h3  	{ font-size: 16px; }
-h4  	{ font-size: 12px; }
-h5  	{ font-size: 11px; }
-h6	    { font-size: 10px; }
-p		{ font-size: 12px; line-height: 18px; }
+h1, h2, h3, h4, h5, h6 { font-family: Helvetica, Arial, sans-serif; font-weight: normal; }
+h1  	{ font-size: 48px; }
+h2  	{ font-size: 32px; }
+h3  	{ font-size: 18px; }
+h4  	{ font-size: 16px; }
+h5  	{ font-size: 14px; }
+h6	    { font-size: 12px; }
+p		{ font-size: 14px; line-height: 18px; }
 a   	{ color: #eee4a8; text-decoration: none; }
+a:visited {  }
 a:hover { text-decoration: underline; }
+a:active {  }
 
 /* Forms */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="url"],
-textarea {
-	background: #262624; color: #fff; border: 0; border-bottom: 1px solid #404040; padding: 8px 0 8px 5px; width: 100%;
-	-webkit-box-shadow: inset 0 0 5px 2px rgba(0,0,0,0.25);
-	-moz-box-shadow: inset 0 0 5px 2px rgba(0,0,0,0.25);
-	-ms-box-shadow: inset 0 0 5px 2px rgba(0,0,0,0.25);
-	-o-box-shadow: inset 0 0 5px 2px rgba(0,0,0,0.25);
-	box-shadow: inset 0 0 5px 2px rgba(0,0,0,0.25);
-	-webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px;
-}
-textarea { min-height: 200px; }
+textarea { border: 0; padding: 8px 4px; width: 90%; }
+textarea { min-height: 100px; }
 label { color: #ccc; display: block; padding: 5px 0; }
 .required {	color: #cc0033; }
-/* Normalize placeholder styles */
-::-webkit-input-placeholder { color:#808080; font-style:italic; }
-input:-moz-placeholder, textarea:-moz-placeholder {	color:#808080; font-style:italic; }
-input.placeholder-text, textarea.placeholder-text  { color:#808080; font-style:italic; }
 .btn {
-	border: 4px solid #000; color: #313131; font-size: 14px; font-weight: bold; display: block; padding: 12px 22px; text-align: center; text-shadow: 0 1px 0 rgba(255,255,255,0.3); text-transform: uppercase;
+	border: 1px solid #000; color: #313131; font-size: 14px; font-weight: bold; display: inline-block; padding: 12px 22px; text-align: center; text-shadow: 0 1px 0 rgba(255,255,255,0.3); text-transform: uppercase;
 	background-color: #eee4a8;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff7c9), to(#ccbc64));
 	background-image: -webkit-linear-gradient(top, #fff7c9, #ccbc64);
@@ -99,33 +67,6 @@ input.placeholder-text, textarea.placeholder-text  { color:#808080; font-style:i
     -o-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
     box-shadow: inset 0 0 5px 2px rgba(112,106,68,0.4), 0 0 15px rgba(254,248,211,0.05);
 }
-.btn-secondary {
-	color: #eee4a8;
-	background-color: #444444;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#616161), to(#424242));
-	background-image: -webkit-linear-gradient(top, #616161, #424242);
-	background-image: -moz-linear-gradient(top, #616161, #424242);
-	background-image: -ms-linear-gradient(top, #616161, #424242);
-	background-image: -o-linear-gradient(top, #616161, #424242);
-	background-image: linear-gradient(top, #616161, #424242);
-	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
-	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
-	-ms-box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
-	-o-box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
-	box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
-	text-shadow: 0 1px 0 rgba(0,0,0,0.5);
-}
-.btn-secondary:hover {
-    background-color: #555555;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#797979), to(#555555));
-    background-image: -webkit-linear-gradient(top, #797979, #555555);
-    background-image: -moz-linear-gradient(top, #797979, #555555);
-    background-image: -ms-linear-gradient(top, #797979, #555555);
-    background-image: -o-linear-gradient(top, #797979, #555555);
-    background-image: linear-gradient(top, #797979, #555555);
-}    
-.btn-secondary:active { background: #606060; box-shadow: inset 0 0 5px 2px rgba(0,0,0,0.4); }
-.btn-large { font-size: 16px; padding: 18px 30px; }
 
 /* =================================================================================
 Structure Blocks
@@ -143,39 +84,15 @@ Structure Blocks
 Content Blocks 
 ================================================================================= */
 
-#primary { background: #333333; color: #fff; height: 800px; overflow: hidden; }
-#primary h1, #primary strong { color: #eee4a8; }
-#primary p { margin: 0 0 10px; }
-#game { height: 600px; }
-#sweepstakes { padding: 20px; position: relative; }
-#sweepstakes header h1 { float: left; width: 65%; }
-#sweepstakes header .btn { float: right; margin: 10px 0 0; }
+.primary {  }
+.primary p { margin: 0 0 10px; }
 
-.like #primary { height: auto; }
-
-#sweepstakes form { display: block; margin: 40px 0 20px; width: 475px; } /* not as wide to accomodate 5px padding on fields */
-#sweepstakes form .row { margin: 0 0 10px; }
-#sweepstakes form .btn { display: inline-block; margin: 10px 0 0; }
-#sweepstakes form .checkbox { float: left; margin: 6px 5px 0 0; }
-#errors, #success, #loading { display: none; }
-#success { margin: 30px 0 0; }
-#success img { border: 3px solid #fff; }
-.error-msg { font-size: 10px; color: #eee4a8; }
+.errors, .success, .loading { display: none; }
+.error-msg { font-size: 10px; color: #ff0000; }
 .loading { background: #000 url(../images/ajax-loader.gif) no-repeat 50% 50%; margin: -32px 0 0 -32px; position: absolute; top: 50%; left: 50%; text-indent: -9999em; width: 64px; height: 64px; overflow: hidden; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; }
 
-#secondary { padding: 20px; }
-#secondary h2 { color: #0d417b; }
-#secondary p { margin: 0 0 10px; }
-#secondary a { color: #1b2746; }
 .fb-share-btn { background: #ECEEF5 url(../images/icon-fb-share.png) no-repeat 5px 50%; border: 1px solid #CAD4E7; color: #3B5998; display: block; font-size: 10px; font-weight: normal; line-height: 14px; margin: 0 4px 0 0; padding: 2px 4px 2px 20px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
 .fb-share-btn:hover { text-decoration: none; }
-.donation-info { float: left; width: 380px; }
-.goal { float: right; position: relative; width: 60px; height: 123px; overflow: hidden; }
-.goal img { position: absolute; z-index: 5; }
-.goal .progress { background: #0d4582; height: 0; position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; z-index: 1; }
-.goal .progress span { color: #fff; display: none; font-size: 10px; font-weight: bold; padding: 0 0 14px 0; position: absolute; bottom: 0; text-align: center; width: 38px; }
-
-.disclaimer { font-size: 10px; font-weight: bold; }
 
 /* =================================================================================
 Plugins
@@ -186,8 +103,7 @@ Plugins
 IE
 ================================================================================= */
 
-.css3 { behavior:url(/resources/js/pie.htc); }
-.ie #sweepstakes form .checkbox { margin: 0 5px 0 0; }
+.css3 { behavior:url(/resources/scripts/pie.htc); }
 
 /* =================================================================================
 Print
@@ -195,8 +111,7 @@ Print
 @media print {	
 	* { background: #fff; color: #000; }
 	html { font: 100%/1.5 georgia, serif; }
-	#navwrap { display: none; }
-	#content { float: none; margin: 0; width: 100%; }
+	.main { float: none; margin: 0; width: 100%; }
 	a { color: #000000; }
 	a:link:after { content: " (" attr(href) ") "; }
 }
