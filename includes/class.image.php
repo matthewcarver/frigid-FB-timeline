@@ -67,7 +67,7 @@ class Image
 	{
 		
 		$this->image['basename'] = str_replace('.' . $this->image['extension'], '_' . round($this->image['width']) . 'x' . round($this->image['height']) . '.' . $this->image['extension'], $this->image['basename']);
-		$path = $this->image['dirname'] . '/' . $this->image['basename'];
+		$path = ABSPATH . UPLOAD_PATH . '/' . $this->image['basename'];
 		switch($this->image['type'])
 		{
 			case 'image/jpeg':
