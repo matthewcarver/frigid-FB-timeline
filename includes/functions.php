@@ -481,7 +481,7 @@ function substrWords($string, $length, $delimiter = '&hellip;') {
 }
 
 function trimByWords($string, $num) {
-	preg_match("/([\S]+\s*){0,$num}/", strip_tags($string), $regs);
+	preg_match("/([\S]+\s*){0,$num}/", $string, $regs);
 	return trim($regs[0]);
 }
 

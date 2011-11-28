@@ -3,11 +3,11 @@
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, 
 pre, form, fieldset, input, textarea, p, blockquote, th, td { padding: 0; margin: 0; }
 
-body          { text-align: center; }
+body          { font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 300; text-align: center; }
 img           { border: 0; vertical-align: top; }
-a             { text-decoration: none; }
-a:hover       { text-decoration: underline; }
 :focus        { outline: 0; }
+a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer { cursor: pointer; }
 
 /* Forms */
 form          { display: inline; }
@@ -33,37 +33,63 @@ blockquote    { font-style: italic; padding: 0 0 0 2em; }
 abbr, acronym { border: 0; } 
 small         { font-size: 10px; }
 big           { font-size: 1.2em; }
-/*sup           { font-size:1em; vertical-align:top; }/*/
+sup, sub	  { vertical-align: baseline; position: relative; top: -0.4em; }
+sub			  { top: 0.4em; }
 
 /* Lists */
 ul,ol         { list-style: none; }
 
-
 /* Tools */
 .hidden       { display: block !important; border: 0 !important; margin: 0 !important; padding: 0 !important; font-size: 0 !important; line-height: 0 !important; width: 0 !important; height: 0 !important; overflow: hidden !important; }
+.hide		  { display: none; }
 .wrap         { white-space: normal !important; }
-.v-top        { vertical-align: top; }
-.v-middle     { vertical-align: middle; }
 .float-left,
 .left         { float: left !important; }
 .float-right,
 .right        { float: right !important; }
-.hide		  { display: none; }
 .block 		  { display: block; }
 .text-left 	  { text-align: left; }
 .text-right   { text-align: right; }
 .text-center  { text-align: center; }
 .text-justify { text-align: justify; }
-.underline 	  { border-bottom: 1px solid; }
 .highlight 	  { background: #fffaaa; }
-.relative 	  { position: relative; }
-.absolute 	  { position: absolute; }
+.alignleft  { float: left; margin: 0 1em 1em 0; }
+.alignright { float: right; margin: 0 0 1em 1em; }
+.bullets { list-style: disc outside; margin: 1em 0; padding: 0 0 0 3em; }
+.numbers { list-style: decimal outside; margin: 1em 0; padding: 0 0 0 3em; }
+.ir { display: block; overflow: hidden; text-indent: -9999em; }
+.inline-block { display:-moz-inline-stack; display:inline-block; } /* probably want to add vertical-align: top; if you're making a grid */
+.lte7 .inline-block { display: inline; zoom: 1; }
+
+/* Remove spacing from first/last elements in a set. Replace * with parent class
+* > :first-child { margin-top: 0 !important; margin-left: 0 !important; }
+* > :last-child { margin-bottom: 0 !important; margin-right: 0 !important; }
+*/
 
 /* Clearfix */
-.clear:before,
-.clear:after,
-.col2-set:before,
-.col2-set:after { content: "."; display: block; height: 0; overflow: hidden; }
-.clear:after,
-.clear:after, .col2-set:after { clear: both; }
-.ie .clear, .ie .col2-set { zoom: 1; }
+.group:before, .group:after { content:""; display:table; }
+.group:after { clear:both; }
+.lte7 .group { zoom:1; /* For IE 6/7 (trigger hasLayout) */ }
+
+/* Fonts */
+h1  	{ font-size: 36px; }
+h2  	{ font-size: 24px; }
+h3  	{ font-size: 16px; }
+h4  	{ font-size: 12px; }
+h5  	{ font-size: 11px; }
+h6	    { font-size: 10px; }
+p		{ font-size: 16px; }
+a   		  { text-decoration: none; }
+a:visited	  { color: purple; }
+a:hover		  { text-decoration: underline; }
+a:active	  {  }
+
+/* Add styles/content to links that meet criteria */
+a[href$=".pdf"]:after { content: " (PDF)"; }
+a[href^="http://"] { /* fully valid URL, likely external link */ }
+a[href="http://google.com"] { /* link to specific website */ }
+a[href^="/"], a[href^=".."] { /* internal relative link */ }
+a[href^="mailto:"] { /* email link */ }
+a[href$=".doc"] { /* Microsoft Word document */ }
+a[href$=".mp3"] { /* Music file */ }
+a[href$=".zip"] { /* Archive file */ }
