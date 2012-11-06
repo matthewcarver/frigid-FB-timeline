@@ -1,3 +1,4 @@
+<img src="/content/images/prizes/prize-spa.jpg">
 <div class="copy">
   <p>We know your time is precious – but so are
     you! Our daily prizes are sure to give you

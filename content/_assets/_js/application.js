@@ -3,7 +3,6 @@
 // The DOM is now ready
 
 
-
 $(function() {
 
   $.fn.extend({
@@ -40,6 +39,20 @@ $(function() {
   });
 
   $('#slides').newsSlider();
+
+  $("#cta-block a").mouseenter(function(){
+      var num = $(this).attr('rel');
+      var leftPos = 161 * (num - 1) + 50;
+
+      $("#cta-block .arrow").animate({
+          left: leftPos
+        });
+    });
+  
+  $("#cta-block a").click(function(){
+    $("#cta-block").fadeOut();
+    $("#form").fadeIn();
+  });
 
 
 });

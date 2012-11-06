@@ -31,6 +31,25 @@
 </section>
 
 <section id="section-2">
+	<div class="copy">
+		<p>What do you spend a lot of time doing during the holidays? Choose
+		a task below for the chance to win daily and weekly prizes,
+		plus a grand prize, a full suite of Frigidaire appliances!</p>
+	</div>
+
+	<div id="cta-block-wrapper" style="display:none;">
+		<div id="cta-block">
+			<div class="arrow"></div>
+			<a href="javascript:void(0);" id="cooking" rel="1">&nbsp;</a>
+			<a href="javascript:void(0);" id="laundry" rel="2">&nbsp;</a>
+			<a href="javascript:void(0);" id="shopping" rel="3">&nbsp;</a>
+			<a href="javascript:void(0);" id="cleaning" rel="4">&nbsp;</a>
+		</div>
+	</div>
+
+	<div id="form">
+		<?php include("_includes/form.php"); ?>
+	</div>
 
 </section>
 <section id="section-3"></section>
