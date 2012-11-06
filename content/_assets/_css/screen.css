@@ -1,0 +1,376 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+*:focus {
+  outline: 0;
+  box-shadow: none; }
+
+/* ==|== non-semantic helper classes ======================================== */
+.ir {
+  display: block;
+  border: 0;
+  text-indent: -999em;
+  overflow: hidden;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  text-align: left;
+  direction: ltr; }
+
+.ir br {
+  display: none; }
+
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+.invisible {
+  visibility: hidden; }
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  zoom: 1; }
+
+html {
+  margin: 0;
+  padding: 0; }
+
+body {
+  margin: 0;
+  padding: 0; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+b, strong {
+  font-weight: bold; }
+
+pre, code, kbd, samp {
+  font-family: "bello-pro"; }
+
+a {
+  color: #297fcf; }
+
+a:visited {
+  color: #2165a4; }
+
+a:hover {
+  color: #4f98dc; }
+
+a:focus {
+  outline: thin dotted;
+  color: #4f98dc; }
+
+a:hover, a:active {
+  outline: 0; }
+
+body {
+  width: 730px;
+  margin: 0 auto;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 14px; }
+
+header[role="main"] {
+  width: 100%;
+  height: 9em;
+  position: relative;
+  background-image: url(../_img/header-pattern.png);
+  background-position: left top;
+  background-repeat: repeat-x; }
+  header[role="main"]:before, header[role="main"]:after {
+    content: " ";
+    width: 17px;
+    height: 9em;
+    display: block;
+    position: absolute;
+    z-index: 9; }
+  header[role="main"]:before {
+    left: -16px;
+    background-image: url(../_img/header-left-ribbon.png); }
+  header[role="main"]:after {
+    right: -16px;
+    background-image: url(../_img/header-right-ribbon.png); }
+header div#logo {
+  width: 242px;
+  height: 89px;
+  display: block;
+  position: absolute;
+  left: 22px;
+  top: 4px;
+  background-image: url(../_img/header-logo.png); }
+
+section#slides {
+  width: 731px;
+  height: 420px;
+  position: relative;
+  top: -20px;
+  overflow: hidden; }
+  section#slides .slide-wrapper {
+    width: 3655px; }
+  section#slides .slide {
+    position: relative;
+    width: 731px;
+    height: 420px;
+    display: block;
+    float: left; }
+  section#slides .copy {
+    position: absolute; }
+  section#slides #slide-01 {
+    background-image: url(../_img/slide-1.jpg); }
+    section#slides #slide-01 .copy {
+      width: 200px;
+      margin-left: -100px;
+      top: 140px;
+      left: 50%; }
+      section#slides #slide-01 .copy p {
+        margin-bottom: 10px;
+        font-size: 0.9em;
+        color: #194e7c;
+        text-align: center; }
+    section#slides #slide-01 .cta {
+      top: 275px; }
+  section#slides #slide-02 {
+    background-image: url(../_img/slide-2.jpg); }
+    section#slides #slide-02 .cta {
+      top: 180px;
+      margin-left: 0;
+      left: 115px; }
+    section#slides #slide-02 .copy {
+      width: 300px;
+      display: block;
+      top: 95px;
+      left: 330px; }
+      section#slides #slide-02 .copy p {
+        font-size: 1.15em;
+        line-height: 1.25em;
+        color: white; }
+  section#slides #slide-03 {
+    background-image: url(../_img/slide-3.jpg); }
+    section#slides #slide-03 .cta {
+      top: 235px;
+      margin-left: 0;
+      left: 110px; }
+    section#slides #slide-03 .copy {
+      width: 300px;
+      display: block;
+      top: 140px;
+      left: 340px; }
+      section#slides #slide-03 .copy p {
+        font-size: 1.15em;
+        line-height: 1.25em;
+        color: #fff; }
+        section#slides #slide-03 .copy p a {
+          color: #fff; }
+  section#slides #slide-04 {
+    background-image: url(../_img/slide-4.jpg); }
+    section#slides #slide-04 .cta {
+      top: 150px;
+      margin-left: 0;
+      left: 95px; }
+    section#slides #slide-04 .copy {
+      width: 500px;
+      display: block;
+      top: 240px;
+      left: 120px; }
+      section#slides #slide-04 .copy p {
+        font-size: 1em;
+        line-height: 1.25em;
+        color: #fff;
+        text-align: center; }
+        section#slides #slide-04 .copy p a {
+          color: #fff; }
+  section#slides #slide-05 {
+    background-image: url(../_img/slide-5.jpg); }
+    section#slides #slide-05 .cta {
+      width: 190px;
+      top: 210px;
+      margin-left: 0;
+      left: 450px;
+      background-image: url(../_img/see-the-cards.png); }
+    section#slides #slide-05 .copy {
+      width: 280px;
+      display: block;
+      top: 140px;
+      left: 400px; }
+      section#slides #slide-05 .copy p {
+        font-size: 1em;
+        line-height: 1.25em;
+        color: #fff;
+        text-align: center; }
+        section#slides #slide-05 .copy p a {
+          color: #fff; }
+  section#slides nav#slide-nav {
+    width: 609px;
+    height: 35px;
+    margin-left: -305px;
+    position: absolute;
+    top: 314px;
+    left: 50%;
+    z-index: 9999;
+    background-image: url(../_img/dot-tile.gif);
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.5); }
+    section#slides nav#slide-nav li {
+      width: 20%;
+      display: block;
+      float: left;
+      padding-top: 10px;
+      text-align: center;
+      color: #1c507d;
+      font-family: Verdana;
+      cursor: hand;
+      cursor: pointer; }
+      section#slides nav#slide-nav li.active {
+        color: #ff1e50; }
+  section#slides #nav-arrow-01 {
+    width: 25px;
+    height: 23px;
+    display: block;
+    margin-left: -75px;
+    position: absolute;
+    top: -15px;
+    left: 122px;
+    background-image: url(../_img/small-arrow.png); }
+  section#slides .cta {
+    width: 138px;
+    height: 32px;
+    display: block;
+    margin-left: -74px;
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    background-image: url(../_img/CTA.png);
+    background-position: center bottom; }
+    section#slides .cta:hover {
+      background-position: center -1px; }
+section#section-2, section#section-3 {
+  width: 731px;
+  display: block;
+  float: left;
+  position: relative;
+  top: -73px; }
+section#section-2 {
+  height: 390px;
+  background-image: url(../_img/section-2.png); }
+section#section-3 {
+  height: 682px;
+  background-image: url(../_img/section-3.jpg); }
+
+#flip-counter {
+  width: 320px;
+  position: absolute;
+  top: 9px;
+  right: 80px;
+  background-image: url(../_img/flip-title.jpg);
+  background-repeat: no-repeat;
+  background-position: 9px 4px; }
+  #flip-counter:after {
+    content: " ";
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    top: 23px;
+    right: -68px;
+    z-index: 1;
+    background-image: url(../_img/ticker-tag.png);
+    background-repeat: no-repeat; }
+
+.flip-counter ul.cd {
+  float: left;
+  margin: 0 -14px 0 0;
+  padding: 0;
+  list-style-type: none;
+  position: relative;
+  z-index: 99; }
+
+.flip-counter li {
+  background: url(../_img/digits.png) 0 0 no-repeat;
+  position: relative;
+  z-index: 99; }
+
+.flip-counter li.t {
+  background-position: 0 0;
+  width: 53px;
+  height: 39px; }
+
+.flip-counter li.b {
+  background-position: 0 0;
+  width: 53px;
+  height: 64px; }
+
+.flip-counter li.s {
+  background-position: -53px -1030px;
+  width: 14px;
+  height: 103px; }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+  body {
+    outline: 1px solid red;
+    width: 100%; } }

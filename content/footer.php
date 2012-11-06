@@ -1,5 +1,7 @@
-		</div> <!-- end .main -->
-	</div> <!-- end .container -->
+
+<!-- scripts -->
+<script src="/content/_assets/_js/application.js"></script>
+
 	<div id="fb-root"></div>
 	<script type="text/javascript">
 		// Load Facebook SDK and resize iframe
@@ -14,6 +16,7 @@
 	        document.getElementById('fb-root').appendChild(e);
 	    }());
 	</script>
+	
 	<script type="text/javascript">
 		//Asynchronous Google Analytics
 		var _gaq = [['_setAccount', '<?php echo GA_ID; ?>'], ['_trackPageview']];

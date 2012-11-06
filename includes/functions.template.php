@@ -63,16 +63,13 @@ function meta($item, $echo = true){
 	elseif(isset($meta[$item]) && !$echo) return $meta[$item];
 	else return false;
 }
-
+ 
 function load_scripts($load = array('all'), $extra = array()){
 	$scripts = array(
-		'modernizr' => array('url' => meta('resources', false) . '/scripts/modernizr.js'),
+		'modernizr' => array('url' => meta('resources', false) . '/_js/_lib/modernizr-2.0.6.min.js'),
 		'jquery' => array('url' => '//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'),
-		'swfobject' => array('url' => '//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js'),
 		'facebook' => array('url' => '//connect.facebook.net/en_US/all.js'),
-		'easing' => array('url' => meta('resources', false) . '/scripts/easing.js'),
-		'pngfix' => array('url' => meta('resources', false) . '/scripts/pngfix.js'),
-		'scripts' => array('url' => meta('content', false) . '/scripts/scripts.js')
+		'flip-counter' => array('url' => meta('resources', false) . '/_js/_lib/flip-counter.js')
 	);
 	array_merge($scripts, $extra);
 	
@@ -89,8 +86,7 @@ function load_scripts($load = array('all'), $extra = array()){
 
 function load_styles($load = array('all'), $extra = array()) {
 	$styles = array(
-		'master' => array('url' => meta('resources', false) . '/styles/master.css'),
-		'style' => array('url' => meta('content', false) . '/styles/styles.css')
+		'style' => array('url' => meta('content', false) . '/_assets/_css/screen.css')
 	);
 	array_merge($styles, $extra);
 	

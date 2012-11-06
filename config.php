@@ -3,7 +3,7 @@
 // GENERAL CONFIGURATION
 
 define('SITE_TITLE', 'Facebook App');
-define('SITE_URL', 'http://frameworks.local/facebook-framework');
+define('SITE_URL', 'http://frigidaire.dev');
 define('UPLOAD_PATH', '/uploads');
 define('SITE_LANGUAGE', 'en');
 define('SITE_CHARSET', 'utf-8');

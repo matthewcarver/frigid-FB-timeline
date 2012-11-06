@@ -15,7 +15,7 @@ $build = new Build();
 
 $meta['url'] = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? str_replace('http://', 'https://', SITE_URL) : SITE_URL;
 $meta['content'] = $meta['url'] . '/content';
-$meta['resources'] = $meta['url'] . '/resources';
+$meta['resources'] = $meta['url'] . '/content/_assets';
 $meta['uploads'] = $meta['url'] . '/' . UPLOAD_PATH;
 $meta['body_class'] = CURRENT_PAGE;
 $meta['language'] = SITE_LANGUAGE;

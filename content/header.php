@@ -11,18 +11,26 @@
 	
 	<title><?php meta('title'); ?></title>
 	
+
+	<!-- css -->
+  <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 	<?php load_styles(); ?>
+
+	<!-- js --> 
+	<?php load_scripts( array( 'modernizr', 'jquery', 'flip-counter' ) ); ?>
 	
-	<script>
-		var site = {
-			url:'<?php meta("url"); ?>',
-			ajax: '<?php meta("url"); ?>/ajax',
-			page: '<?php meta("body_class"); ?>',
-			fb: '<?php meta("fb_url"); ?>'
-		};
-	</script>
-	<?php load_scripts( array( 'modernizr', 'jquery', 'scripts' ) ); ?>
+	<script type="text/javascript">
+  (function($){
+    $(function() {
+    var myCounter = new flipCounter('flip-counter', {value:123455, inc:100, pace:1000, auto:true});
+  });
+  })( jQuery.noConflict() );
+  </script>
+
 </head>
 <body class="<?php meta('body_class'); ?>">
-	<div id="container" class="container group">
-		<div id="content" class="main group">
+	
+<header role="main">
+	<div id="logo"></div>
+	<div id="flip-counter" class="flip-counter"></div>
+</header>

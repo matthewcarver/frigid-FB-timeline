@@ -1,0 +1,439 @@
+// Site Styles
+
+// TABLE OF CONTENTS
+//
+// 1 - root
+// 2 - headers
+// 3 - navigation
+// 4 - article
+// 5 - sections
+// 6 - .flip-counter
+//	8 - 
+//	9 - 
+
+
+// 1 - root
+body{
+  width:730px;
+  margin:0 auto;
+  font-family: 'Varela Round', sans-serif; 
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+// ****************************
+// ****************************
+// ****************************
+// ****************************
+// 2 - headers ****************
+// ****************************
+// ****************************
+// ****************************
+// ****************************
+
+
+header{
+  &[role="main"]{
+      width:100%;
+      height:9em;
+
+      position: relative;
+
+      background-image:url(../_img/header-pattern.png);
+      background-position: left top;
+      background-repeat:repeat-x;
+
+      &:before, &:after{
+        content:" ";
+        width:17px;
+        height:9em;
+        display: block;
+
+        position: absolute;
+        z-index:9;
+        }//&:before, &:after
+      
+      &:before{
+        left:-16px;
+        background-image:url(../_img/header-left-ribbon.png);
+        }//&:before
+
+      &:after{
+        right:-16px;
+        background-image:url(../_img/header-right-ribbon.png);
+        }//&:after
+
+
+    }//[role="main"]
+
+    div#logo{
+      width:242px;
+      height:89px;
+      display: block;
+      
+      position: absolute;
+      left:22px;
+      top:4px;
+
+      background-image:url(../_img/header-logo.png);
+    }
+
+}
+
+// 3 - navigation
+nav{}
+	
+// 4 - article
+article{}
+	
+
+
+
+
+
+
+
+
+
+
+
+// ****************************
+// ****************************
+// ****************************
+// **************************** 
+// 5 - sections ***************
+// ****************************
+// ****************************
+// ****************************
+// ****************************
+
+section{
+
+  &#slides{
+    width:731px;
+    height:420px;
+
+    position:relative;
+    top:-20px;
+    overflow: hidden;
+
+
+    .slide-wrapper{
+      width:3655px;
+    }
+
+    .slide{
+      position: relative;
+      width:731px;
+      height:420px;
+      display: block;
+      float: left;
+    }
+
+    .copy{
+      position: absolute;
+    }
+
+    #slide-01{
+      background-image:url(../_img/slide-1.jpg);
+
+      .copy{
+        width:200px;
+
+        margin-left:-100px;
+
+        top:140px;
+        left:50%;
+
+        p{
+          margin-bottom: 10px;
+          font-size: 0.9em;
+
+          color:#194e7c;
+          text-align: center;
+        }
+
+      }//.copy
+
+      .cta{
+        top:275px
+      }
+    }//#slide-01
+    #slide-02{
+      background-image:url(../_img/slide-2.jpg);
+
+      .cta{
+        top:180px;
+        margin-left: 0;
+        left:115px;
+      }
+
+      .copy{
+        width:300px;
+        display:block;
+
+        top:95px;
+        left:330px;
+
+        p{
+          font-size: 1.15em;
+          line-height: 1.25em;
+          color:#fff
+        }
+      }
+    }//#slide-02
+    #slide-03{
+      background-image:url(../_img/slide-3.jpg);
+
+      .cta{
+        top:235px;
+        margin-left: 0;
+        left:110px;
+      }
+
+      .copy{
+        width:300px;
+        display:block;
+
+        top:140px;
+        left:340px;
+
+        p{
+          font-size: 1.15em;
+          line-height: 1.25em;
+          color:#fff;
+
+          a{color:#fff;}
+        }
+      }
+    }//#slide-03
+    #slide-04{
+      background-image:url(../_img/slide-4.jpg);
+
+      .cta{
+        top:150px;
+        margin-left: 0;
+        left:95px;
+      }
+
+      .copy{
+        width:500px;
+        display:block;
+
+        top:240px;
+        left:120px;
+
+        p{
+          font-size: 1em;
+          line-height: 1.25em;
+          color:#fff;
+          text-align: center;
+          
+          a{color:#fff;}
+        }
+      }
+    }//#slide-04
+    #slide-05{
+      background-image:url(../_img/slide-5.jpg);
+
+      .cta{
+        width: 190px;
+        top:210px;
+        margin-left: 0;
+        left:450px;
+        background-image:url(../_img/see-the-cards.png);
+      }
+
+      .copy{
+        width:280px;
+        display:block;
+
+        top:140px;
+        left:400px;
+
+        p{
+          font-size: 1em;
+          line-height: 1.25em;
+          color:#fff;
+          text-align: center;
+          
+          a{color:#fff;}
+        }
+      }
+    }//#slide-05
+
+    nav#slide-nav{
+      width:609px;
+      height:35px;
+
+      margin-left:-305px;
+
+      position: absolute;
+      top:314px;
+      left:50%;
+      z-index: 9999;
+
+      background-image: url(../_img/dot-tile.gif);
+      box-shadow: 0 2px 1px rgba(0,0,0,0.5);
+
+      li{
+        width:20%;
+        display:block;
+        float:left;
+
+        padding-top:10px;
+
+        text-align:center;
+        color:#1c507d;
+        font-family: Verdana;
+
+        cursor:hand;
+        cursor:pointer;
+
+        &.active{
+          color:#ff1e50;
+        }
+
+      }
+    }//nav#slide-nav
+
+    #nav-arrow-01{
+      width:25px;
+      height:23px;
+      display: block;
+      margin-left: -75px;
+
+      position: absolute;
+      top:-15px;
+      left:122px;
+
+      background-image:url(../_img/small-arrow.png);
+    }
+
+    .cta{
+      width:138px;
+      height:32px;
+      display:block;
+
+      margin-left:-74px;
+
+      position: absolute;
+      top:250px;
+      left:50%;
+
+      background-image:url(../_img/CTA.png);
+      background-position:center bottom;
+
+      &:hover{
+        background-position:center -1px;
+      }
+
+    }
+
+  }//&#slides
+
+  &#section-2, &#section-3{
+    width:731px;
+    display: block;
+    float: left;
+
+    position:relative;
+    top:-73px;
+
+
+  }//&#section-2, &#section-3
+
+  &#section-2{
+    height:390px;
+
+    background-image:url(../_img/section-2.png);
+  }//&#section-2
+
+  &#section-3{
+    height: 682px;
+
+    background-image:url(../_img/section-3.jpg);
+  }//&#section-3
+
+}
+
+
+
+
+
+
+
+
+
+// ****************************
+// ****************************
+// ****************************
+// ****************************
+// 6 - .flip-counter **********
+// ****************************
+// ****************************
+// ****************************
+// ****************************
+
+#flip-counter{ 
+  width:320px; 
+
+  position: absolute;
+  top:9px;
+  right:80px;
+
+  background-image:url(../_img/flip-title.jpg);
+  background-repeat:no-repeat;
+  background-position: 9px 4px;
+
+  &:after{
+    content:" ";
+    width:80px;
+    height:30px;
+
+    position: absolute;
+    top:23px;
+    right:-68px;
+    z-index:1;
+
+    background-image:url(../_img/ticker-tag.png);
+    background-repeat:no-repeat;
+  }
+
+}
+
+.flip-counter ul.cd{
+  float:left;
+
+  margin:0 -14px 0 0;
+  padding:0;
+
+  list-style-type:none;
+
+  position:relative; 
+  z-index:99;
+}
+.flip-counter li{background:url(../_img/digits.png) 0 0 no-repeat; position:relative; z-index:99;}
+.flip-counter li.t{background-position:0 0;width:53px;height:39px}
+.flip-counter li.b{background-position:0 0;width:53px;height:64px}
+.flip-counter li.s{background-position:-53px -1030px;width:14px;height:103px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
