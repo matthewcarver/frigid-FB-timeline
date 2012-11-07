@@ -55,6 +55,36 @@ $(function() {
   });
 
 
+  var card;
+  var cardImg;
+
+  
+  $("#card-gallery").find(".card-thumb").hover(function(){
+
+    card = $(this);
+    cardImg = $(this).attr('rel');
+    
+    var cardTip = '<div class="tooltip"><img src="//placehold.it/289x165?text='+ cardImg +'"></div>';
+  
+    card.append(cardTip);
+
+
+  },function(){
+    card = $(this);
+
+    card.empty();
+
+  });
+
+
+  $("#card-gallery").find(".card-thumb").click(function(){
+
+    var cardHTML = '<div class="featured-card"><img src="//placehold.it/572x327&text=ecard+001"><div class="social"><a href="#" class="social-link pinterest"></a><a href="#" class="social-link facebook"></a><a href="#" class="social-link twitter"></a></div></div>';
+
+    $("#card-gallery .featured-card").remove();
+
+  });
+
 });
 
 

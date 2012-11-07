@@ -367,8 +367,72 @@ section#section-2 {
       margin-top: 20px;
       text-decoration: none; }
 section#section-3 {
-  height: 682px;
+  height: 982px;
   background-image: url(../_img/section-3.jpg); }
+  section#section-3 h2 {
+    position: relative;
+    top: 40px;
+    padding-top: 40px;
+    background-image: url(../_img/section-3-title.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: #fff;
+    text-align: center;
+    font-weight: normal; }
+section #card-gallery {
+  width: 575px;
+  margin: 0 auto;
+  position: relative;
+  top: 100px; }
+section .featured-card {
+  width: 100%;
+  height: 372px;
+  display: block;
+  float: left;
+  margin: 10px 0; }
+  section .featured-card img {
+    border: 2px solid #fff; }
+  section .featured-card .social {
+    width: 163px;
+    display: block;
+    margin: 10px auto; }
+    section .featured-card .social a.social-link {
+      height: 21px;
+      display: block;
+      float: left;
+      margin-left: 3px;
+      background-image: url(../_img/social-btns.jpg);
+      background-position-y: bottom;
+      background-repeat: no-repeat; }
+      section .featured-card .social a.social-link:hover {
+        background-position-y: top; }
+    section .featured-card .social a.pinterest {
+      width: 39px;
+      background-position-x: left; }
+    section .featured-card .social a.facebook {
+      width: 57px;
+      background-position-x: -40px; }
+    section .featured-card .social a.twitter {
+      width: 57px;
+      background-position-x: -98px; }
+section .card-thumb {
+  width: 130px;
+  height: 80px;
+  display: block;
+  float: left;
+  position: relative;
+  margin: 5px;
+  background: url(//placehold.it/133x80&text=ecard+demo);
+  cursor: hand;
+  cursor: pointer;
+  outline: 1px solid red; }
+section .tooltip {
+  padding: 5px 5px 25px 5px;
+  position: absolute;
+  top: -185px;
+  left: -80px;
+  background-image: url(../_img/tooltip.png);
+  background-repeat: no-repeat; }
 
 #flip-counter {
   width: 320px;

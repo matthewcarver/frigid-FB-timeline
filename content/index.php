@@ -30,14 +30,14 @@
 	</div>
 </section>
 
-<section id="section-2">
+<section id="section-2" class="clearfix">
 	<div class="copy">
 		<p>What do you spend a lot of time doing during the holidays? Choose
 		a task below for the chance to win daily and weekly prizes,
 		plus a grand prize, a full suite of Frigidaire appliances!</p>
 	</div>
 
-	<div id="cta-block-wrapper" style="display:none;">
+	<div id="cta-block-wrapper">
 		<div id="cta-block">
 			<div class="arrow"></div>
 			<a href="javascript:void(0);" id="cooking" rel="1">&nbsp;</a>
@@ -47,11 +47,56 @@
 		</div>
 	</div>
 
-	<div id="form">
+	<div id="form" style="display:none;">
 		<?php include("_includes/form.php"); ?>
 	</div>
 
 </section>
-<section id="section-3"></section>
+<section id="section-3" class="clearfix">
+	<h2>Share a holiday laugh (or two!) with your loved ones.</h2>
+	<div id="card-gallery">
+
+		<div class="featured-card">
+			<img src="//placehold.it/572x327&text=ecard+001">
+			<div class="social">
+				<a href="#" class="social-link pinterest"></a>
+				<a href="#" class="social-link facebook"></a>
+				<a href="#" class="social-link twitter"></a>
+			</div>
+		</div>
+		<!-- .featured-card -->
+		<div class="card-thumb card001" rel="card001"></div>
+		<div class="card-thumb card002" rel="card002"></div>
+		<div class="card-thumb card003" rel="card003"></div>
+		<div class="card-thumb card004" rel="card004"></div>
+		<div class="card-thumb card005" rel="card005"></div>
+		<div class="card-thumb card006" rel="card006"></div>
+		<div class="card-thumb card007" rel="card007"></div>
+		<div class="card-thumb card008" rel="card008"></div>
+		<div class="card-thumb card009" rel="card009"></div>
+		<div class="card-thumb card010" rel="card010"></div>
+		<div class="card-thumb card011" rel="card011"></div>
+		<div class="card-thumb card012" rel="card012"></div>
+		<div class="card-thumb card013" rel="card013"></div>
+		<div class="card-thumb card014" rel="card014"></div>
+		<div class="card-thumb card015" rel="card015"></div>
+		<div class="card-thumb card016" rel="card016"></div>
+		<div class="card-thumb card017" rel="card017"></div>
+		<div class="card-thumb card018" rel="card018"></div>
+		<div class="card-thumb card019" rel="card019"></div>
+		<div class="card-thumb card020" rel="card020"></div>
+		<div class="card-thumb card021" rel="card021"></div>
+		<div class="card-thumb card022" rel="card022"></div>
+		<div class="card-thumb card023" rel="card023"></div>
+		<div class="card-thumb card024" rel="card024"></div>
+		<div class="card-thumb card025" rel="card025"></div>
+		<div class="card-thumb card026" rel="card026"></div>
+		<div class="card-thumb card027" rel="card027"></div>
+		<div class="card-thumb card028" rel="card028"></div>
+		<div class="card-thumb card029" rel="card029"></div>
+		
+
+	</div>
+</section>
 
 <?php get_footer(); ?>
