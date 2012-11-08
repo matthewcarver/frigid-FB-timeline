@@ -329,6 +329,8 @@ section#section-2, section#section-3 {
 section#section-2 {
   height: 390px;
   background-image: url(../_img/section-2.png); }
+  section#section-2.thanks {
+    background-image: url(../_img/section-2-alt.png); }
   section#section-2 .copy {
     width: 546px;
     margin: 0 auto;
@@ -341,22 +343,26 @@ section#section-2 {
       text-align: center; }
   section#section-2 #cta-block-wrapper {
     width: 100%;
-    position: absolute;
-    background-image: url(../_img/section-2-links.jpg);
-    background-position: left 10px;
-    background-repeat: no-repeat; }
+    position: absolute; }
   section#section-2 #cta-block {
     width: 643px;
     height: 180px;
     display: block;
     margin: 0 auto;
-    position: relative; }
+    padding: 0 43px;
+    position: relative;
+    background-image: url(../_img/section-2-links.jpg);
+    background-position: left 10px;
+    background-repeat: no-repeat; }
+    section#section-2 #cta-block .arrow-wrap {
+      width: 650px;
+      position: relative; }
     section#section-2 #cta-block .arrow {
       width: 58px;
       height: 58px;
       display: block;
       position: absolute;
-      left: 45px;
+      left: 50px;
       background-image: url(../_img/big-arrow.png);
       background-repeat: no-repeat; }
     section#section-2 #cta-block a {
@@ -366,8 +372,15 @@ section#section-2 {
       float: left;
       margin-top: 20px;
       text-decoration: none; }
+  section#section-2 #form {
+    width: 678px;
+    height: 300px;
+    display: block;
+    margin: 0 auto; }
 section#section-3 {
-  height: 982px;
+  padding-bottom: 50px;
+  position: relative;
+  overflow: hidden;
   background-image: url(../_img/section-3.jpg); }
   section#section-3 h2 {
     position: relative;
@@ -380,16 +393,24 @@ section#section-3 {
     text-align: center;
     font-weight: normal; }
 section #card-gallery {
-  width: 575px;
+  width: 100%;
   margin: 0 auto;
+  padding-bottom: 50px;
   position: relative;
-  top: 100px; }
+  padding-top: 250px;
+  top: -100px;
+  overflow-y: hidden;
+  overflow-x: visible; }
+  section #card-gallery .card-row {
+    width: 560px;
+    display: block;
+    margin: 0 auto; }
 section .featured-card {
   width: 100%;
   height: 372px;
   display: block;
   float: left;
-  margin: 10px 0; }
+  margin: 10px 0 10px -10px; }
   section .featured-card img {
     border: 2px solid #fff; }
   section .featured-card .social {
@@ -422,10 +443,9 @@ section .card-thumb {
   float: left;
   position: relative;
   margin: 5px;
-  background: url(//placehold.it/133x80&text=ecard+demo);
+  background: url(/content/images/cards/card001-s.jpg);
   cursor: hand;
-  cursor: pointer;
-  outline: 1px solid red; }
+  cursor: pointer; }
 section .tooltip {
   padding: 5px 5px 25px 5px;
   position: absolute;
@@ -433,6 +453,17 @@ section .tooltip {
   left: -80px;
   background-image: url(../_img/tooltip.png);
   background-repeat: no-repeat; }
+section #expandToggle {
+  width: 585px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  margin-left: -305px;
+  background-image: url(../_img/cards-cta.png);
+  background-repeat: no-repeat;
+  text-decoration: none; }
 
 #flip-counter {
   width: 320px;
@@ -480,6 +511,109 @@ section .tooltip {
   background-position: -53px -1030px;
   width: 14px;
   height: 103px; }
+
+#open-modal {
+  width: 400px;
+  height: 60px;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  cursor: hand;
+  cursor: pointer; }
+
+#modal {
+  background-image: url(../_img/trans-bkg.png);
+  width: 100%;
+  height: 1610px;
+  position: absolute;
+  top: 105px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  overflow: hidden; }
+
+.modal-wrap {
+  width: 703px;
+  height: 808px;
+  position: absolute;
+  top: -820px;
+  left: 50%;
+  margin-left: -351px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+  background-image: url(../_img/modal-bkg.jpg); }
+
+#close {
+  width: 41px;
+  height: 41px;
+  display: block;
+  position: absolute;
+  top: 7px;
+  right: 14px;
+  background-image: url(../_img/close.jpg);
+  background-repeat: no-repeat; }
+
+.top-copy {
+  width: 544px;
+  position: absolute;
+  top: 125px;
+  left: 50%;
+  margin-left: -272px;
+  text-align: center; }
+  .top-copy p {
+    color: #194e7c; }
+
+.modal-target {
+  height: 260px;
+  position: absolute;
+  top: 250px; }
+  .modal-target#modal-dish {
+    width: 150px;
+    left: 50px; }
+  .modal-target#modal-stove {
+    width: 150px;
+    left: 210px; }
+  .modal-target#modal-washer {
+    width: 280px;
+    left: 380px; }
+
+.modal-copy {
+  width: 400px;
+  position: absolute;
+  top: 568px;
+  left: 220px;
+  color: #fff; }
+  .modal-copy .time {
+    position: absolute;
+    top: 18px;
+    left: -100px;
+    text-transform: uppercase;
+    font-size: 18px; }
+  .modal-copy a {
+    color: #fff; }
+
+.saved {
+  width: 100px;
+  position: absolute;
+  top: 615px;
+  left: 82px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px; }
+
+#arrow {
+  width: 32px;
+  height: 16px;
+  display: block;
+  position: absolute;
+  top: 532px;
+  left: 100px;
+  background-image: url(../_img/up-caret.jpg); }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
   body {

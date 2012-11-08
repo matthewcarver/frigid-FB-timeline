@@ -1,0 +1,1 @@
+<p style="background-image:url(/content/_assets/_img/fridge.png); background-position-y:10px; padding-right:153px;">Ever have to clean out the refrigerator to store all the holiday groceries? The Fits-More&trade; Capacity of our Frigidaire Gallery&reg; French-Door Refrigerator offers more usable space inside, so you can easily organize and find a place for everything.</p> 

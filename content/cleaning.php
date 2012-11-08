@@ -1,0 +1,1 @@
+<p style="background-image:url(/content/_assets/_img/cleaning.png); background-position-y:10px; padding-right:153px;">Soaking the dishes to avoid scrubbing off sticky food is a thing of the past. The Exclusive OrbitClean&trade; Spray Arm provides 4X better water coverage so you don’t have to soak.</p> 

@@ -4,4 +4,4 @@
   </p>
 </div>
 
-<span class="cta enter-now"></span>
+<span class="cta see-the-cards"></span>
